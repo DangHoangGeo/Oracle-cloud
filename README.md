@@ -21,3 +21,11 @@ b. Install a specific version by its fully qualified package name, which is the 
 
 $ sudo yum install docker-ce-<VERSION_STRING> docker-ce-cli-<VERSION_STRING> containerd.io docker-compose-plugin
 This command installs Docker, but it doesn’t start Docker. It also creates a docker group, however, it doesn’t add any users to the group by default.
+Please do the following steps.
+
+$ cat /etc/group --> There should be a docker group available if you installed docker correctly.
+Add your userid to docker group 
+$ sudo usermod -aG docker $User_Name
+Logout from the session and login again
+$ docker run hello-world
+--> This should run error free now.
